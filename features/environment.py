@@ -1,10 +1,10 @@
-from app.application import Application
+from app.application_gettop import Application_GetTop
 
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
-# from selenium.webdriver.support.events import EventFiringWebDriver
+from support.logger import logger
 
-from support.logger import logger, MyListener
+# from selenium.webdriver.support.events import EventFiringWebDriver
 
 # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
 bs_user = 'mdzahidarefin_SsK0dY'
@@ -21,7 +21,7 @@ def browser_init(context, test_name):
     :param test_name: scenario.name
     """
     context.driver = webdriver.Chrome(
-        executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\python-selenium-automation\\chromedriver')
+        executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\project-GetTop\\chromedriver')
     # context.driver = webdriver.Edge(
     #     executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\python-selenium-automation\\msedgedriver')
     # context.driver = webdriver.Safari()
@@ -58,7 +58,7 @@ def browser_init(context, test_name):
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)  # 100 ms
     context.driver.wait = WebDriverWait(context.driver, 10)  # 500 ms
-    context.app = Application(context.driver)
+    context.app = Application_GetTop(context.driver)
 
 
 def before_scenario(context, scenario):

@@ -1,9 +1,9 @@
 from behave import given, when, then
 
 
-@given("Go to https://gettop.us/")
+@given("Go to GetTop page")
 def open_link(context):
-    pass
+    context.app.home_page.open_page()
 
 
 @when("Scroll down to “LATEST PRODUCTS ON SALE” and hover over a product")
