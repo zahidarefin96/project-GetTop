@@ -3,7 +3,7 @@ from pages.main_page import Main
 from pages.product_page import Product
 
 
-class Application_GetTop:
+class ApplicationGettop:
 
     def __init__(self, driver):
         self.driver = driver

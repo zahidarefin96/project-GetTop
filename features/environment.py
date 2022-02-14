@@ -1,4 +1,4 @@
-from app.application_gettop import Application_GetTop
+from app.applicationGetTop import ApplicationGettop
 
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -58,7 +58,7 @@ def browser_init(context, test_name):
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)  # 100 ms
     context.driver.wait = WebDriverWait(context.driver, 10)  # 500 ms
-    context.app = Application_GetTop(context.driver)
+    context.app = ApplicationGettop(context.driver)
 
 
 def before_scenario(context, scenario):
