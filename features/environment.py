@@ -1,4 +1,4 @@
-from app.applicationGetTop import ApplicationGettop
+from app.application import Application
 
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -20,8 +20,8 @@ def browser_init(context, test_name):
     :param context: Behave context
     :param test_name: scenario.name
     """
-    context.driver = webdriver.Chrome(
-        executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\project-GetTop\\chromedriver')
+    # context.driver = webdriver.Chrome(
+    #     executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\project-GetTop\\chromedriver')
     # context.driver = webdriver.Edge(
     #     executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\python-selenium-automation\\msedgedriver')
     # context.driver = webdriver.Safari()
@@ -29,11 +29,11 @@ def browser_init(context, test_name):
     # context.driver = webdriver.Safari()
     # context.driver = webdriver.PhantomJS()
 
-    # # HEADLESS MODE ####
-    # options = webdriver.ChromeOptions()
-    # options.add_argument('--headless')
-    # context.driver = webdriver.Chrome(chrome_options=options,
-    #                                   executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\python-selenium-automation\\chromedriver')
+    # HEADLESS MODE ####
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    context.driver = webdriver.Chrome(chrome_options=options,
+                                      executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\python-selenium-automation\\chromedriver')
 
     ### EventFiringWebDriver - log file ###
     ### for drivers ###
@@ -58,7 +58,7 @@ def browser_init(context, test_name):
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)  # 100 ms
     context.driver.wait = WebDriverWait(context.driver, 10)  # 500 ms
-    context.app = ApplicationGettop(context.driver)
+    context.app = Application(context.driver)
 
 
 def before_scenario(context, scenario):
