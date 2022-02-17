@@ -1,7 +1,7 @@
 from behave import when, then
 
 
-@when("Click the user icon and verify LOGIN  is shown")
+@when("Click the user icon and verify MY ACCOUNT PAGE  is shown")
 def click_user_icon(context):
     context.app.main_page.click_icon()
 
