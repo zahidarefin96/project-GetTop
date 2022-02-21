@@ -14,6 +14,12 @@ class MainPage(Page):
     # tmtn-102
     USER_ICON = (By.XPATH, "//i[@class='icon-user']")
 
+    # tmtn-123
+    SEARCH_ICON1 = (By.XPATH, "//a//i[@class='icon-search']")
+    SEARCH_ICON2 = (By.XPATH, "//form//div//button//i[@xpath='1']")
+    INPUT_BOX = (By.XPATH, "//input[@id='woocommerce-product-search-field-0']")
+    PHONES = (By.XPATH, "//div[@class='autocomplete-suggestion']")
+
     def hover_lang(self):
         iphone = self.find_element(*self.IPHONE)
         self.driver.execute_script("arguments[0].scrollIntoView();", iphone)
@@ -29,3 +35,14 @@ class MainPage(Page):
 
     def click_icon(self):
         self.click(*self.USER_ICON)
+
+    def search_icon1(self):
+        self.click(*self.SEARCH_ICON1)
+
+    def input_box(self):
+        self.input_text('iphone 11', *self.INPUT_BOX)
+        phones = self.driver.find_elements(*self.PHONES)
+        for phone in phones:
+            if phone.text == "iPhone 11":
+                phone.click()
+                break
