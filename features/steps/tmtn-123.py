@@ -3,7 +3,7 @@ from behave import when, then
 
 @when("Click search icon")
 def click_search_icon(context):
-    context.app.main_page.search_icon1()
+    context.app.main_page.search_icon()
 
 
 @when("Input product in the search field")

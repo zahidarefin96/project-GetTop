@@ -12,4 +12,4 @@ class ProductPage(Page):
         self.click(*self.ADD_TO_CART_TEXT)
 
     def iphone11_text(self):
-        self.verify_text(*self.IPHONE11_TEXT)
+        self.verify_text('iPhone 11', *self.IPHONE11_TEXT)

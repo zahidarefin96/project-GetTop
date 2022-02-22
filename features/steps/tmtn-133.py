@@ -23,4 +23,4 @@ def click_add_to_cart(context):
 
 @then("View that product is added to cart (Message will say product is in cart)")
 def view_product(context):
-    context.app.cart.verify_iphone_se_text()
+    context.app.cart_page.verify_iphone_se_text()
