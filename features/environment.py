@@ -20,8 +20,10 @@ def browser_init(context, test_name):
     :param context: Behave context
     :param test_name: scenario.name
     """
-    context.driver = webdriver.Chrome(
-        executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\project-GetTop\\chromedriver')
+    # context.driver = webdriver.Chrome(
+    #     executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\project-GetTop\\chromedriver')
+    # context.driver = webdriver.Firefox(
+    #     executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\project-GetTop\\geckodriver.exe')
     # context.driver = webdriver.Edge(
     #     executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\python-selenium-automation\\msedgedriver')
     # context.driver = webdriver.Safari()
@@ -45,15 +47,15 @@ def browser_init(context, test_name):
     #                                                        executable_path='C:\\Users\\zahid\\OneDrive\\Documents\\Automation\\python-selenium-automation\\chromedriver'),
     #                                       MyListener())
 
-    ### for browerstack ###
-    # desired_cap = {
-    #     'browser': 'Chrome',
-    #     'os': 'Windows',
-    #     'os_version': '11',
-    #     'name': test_name
-    # }
-    # url = f'http://{bs_user}:{bs_pw}@hub-cloud.browserstack.com/wd/hub'
-    # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+    ## for browerstack ###
+    desired_cap = {
+        'browser': 'Chrome',
+        'os': 'Windows',
+        'os_version': '11',
+        'name': test_name
+    }
+    url = f'http://{bs_user}:{bs_pw}@hub-cloud.browserstack.com/wd/hub'
+    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)  # 100 ms
